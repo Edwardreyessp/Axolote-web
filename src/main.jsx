@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
 import './index.css';
+import React from 'react';
+import Home from './routes/Home';
+import ReactDOM from 'react-dom/client';
+import { MyThemeProvider } from './hooks/Palette';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <MyThemeProvider>
+      <Home />
+    </MyThemeProvider>
   </React.StrictMode>
 );
