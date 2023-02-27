@@ -6,8 +6,14 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 
 export const StyledText = ({ variant, value, color }) => {
+  const { myFont } = useMyTheme();
+
   return (
-    <Typography variant={variant} color={color || 'text.primary'}>
+    <Typography
+      variant={variant}
+      color={color || 'text.primary'}
+      textAlign={myFont.buttonSize === 'small' && 'center'}
+    >
       {value}
     </Typography>
   );
