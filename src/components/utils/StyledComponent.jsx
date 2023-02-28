@@ -84,7 +84,7 @@ export const StyledIcon = ({ color, onClick, icon }) => {
             beforeInjection={svg =>
               svg.setAttribute(
                 'style',
-                `width: 80%; height: 80%; fill: ${myTheme.palette.text.secondary}`
+                `width: 80%; height: 80%; fill: ${myTheme.palette.text.terceary}`
               )
             }
           />

@@ -71,7 +71,7 @@ const TitleBanner = ({ banner }) => {
         value={banner.titleBanner}
         variant="h2"
         align="center"
-        color={banner.type === 'primary' && 'text.secondary'}
+        color={banner.type === 'primary' && 'text.terceary'}
       />
     </Stack>
   );

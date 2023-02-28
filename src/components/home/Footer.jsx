@@ -48,7 +48,7 @@ const Links = ({ social, help }) => {
               <StyledText
                 value={item}
                 variant="caption"
-                color="text.secondary"
+                color="text.terceary"
               />
             </Box>
           );
@@ -64,7 +64,7 @@ const Title = ({ title }) => {
       <StyledText
         value={title}
         variant="body2"
-        color="text.secondary"
+        color="text.terceary"
         align="start"
         weight="bold"
       />
@@ -97,14 +97,14 @@ const TermsAndConditions = ({ terms }) => {
 };
 
 const TermText = ({ text }) => {
-  return <StyledText value={text} variant="caption" color="text.secondary" />;
+  return <StyledText value={text} variant="caption" color="text.terceary" />;
 };
 
 const Social = ({ social }) => {
   return (
     <Box display="flex" gap={2} alignItems="center">
       <StyledIcon icon={social} />
-      <StyledText value={social} variant="caption" color="text.secondary" />
+      <StyledText value={social} variant="caption" color="text.terceary" />
     </Box>
   );
 };

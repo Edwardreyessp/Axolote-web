@@ -78,7 +78,7 @@ export const MyThemeProvider = ({ children }) => {
       },
       text: {
         primary: '#3A4750',
-        secondary: '#F3F3F3',
+        terceary: '#F3F3F3',
       },
     },
     typography: {
