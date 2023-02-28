@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
-import { StyledIcon, StyledText } from './StyledComponent';
+import { StyledIcon, StyledText } from '../utils/StyledComponent';
 
-const Contact = () => {
+const Footer = () => {
   const social = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'TikTok'];
   const help = [
     'Contáctanos',
@@ -109,4 +109,4 @@ const Social = ({ social }) => {
   );
 };
 
-export default Contact;
+export default Footer;

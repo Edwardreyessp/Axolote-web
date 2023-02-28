@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import { useMyTheme } from '../hooks/Palette';
 import logo from '../assets/icons/logo.svg';
 import Carousel from '../components/utils/Carousel';
-import Contact from '../components/utils/Contact';
+import Footer from '../components/home/Footer';
 
 const Home = () => {
   const { myTheme } = useMyTheme();
@@ -20,7 +20,7 @@ const Home = () => {
     },
     {
       title: 'Agrega interacciones con tus clientes',
-      desc: 'Agregar interacciones a tu página web, como formularios de contacto, chats en vivo y redes sociales integradas, para que puedas conectarte con tus clientes de una manera amigable y efectiva.',
+      desc: 'Agregar interacciones a tu página web, como formularios de Footero, chats en vivo y redes sociales integradas, para que puedas conectarte con tus clientes de una manera amigable y efectiva.',
       button: 'Agregar interacciones',
       type: 'primary',
       children: <Carousel slides={[logo, logo, logo, logo]} />,
@@ -42,7 +42,7 @@ const Home = () => {
         {banners.map((banner, index) => {
           return <Banner key={index} banner={banner} />;
         })}
-        <Contact />
+        <Footer />
       </Stack>
     </ThemeProvider>
   );
