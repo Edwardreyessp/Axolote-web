@@ -1,5 +1,5 @@
 import { Stack, ThemeProvider } from '@mui/material';
-import Banner from '../components/home/Banner';
+import Banner from '../components/utils/Banner';
 import Main from '../components/home/Main';
 import Navbar from '../components/Navbar';
 import { useMyTheme } from '../hooks/Palette';

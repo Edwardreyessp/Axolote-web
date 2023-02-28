@@ -1,5 +1,5 @@
 import { Box, Stack } from '@mui/material';
-import { StyledButton, StyledText } from '../utils/StyledComponent';
+import { StyledButton, StyledText } from './StyledComponent';
 import { useMyTheme } from '../../hooks/Palette';
 
 const Banner = ({ banner }) => {
