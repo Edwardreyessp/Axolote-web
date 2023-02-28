@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import { useMyTheme } from '../hooks/Palette';
 import logo from '../assets/icons/logo.svg';
 import Carousel from '../components/utils/Carousel';
+import Contact from '../components/utils/Contact';
 
 const Home = () => {
   const { myTheme } = useMyTheme();
@@ -41,6 +42,7 @@ const Home = () => {
         {banners.map((banner, index) => {
           return <Banner key={index} banner={banner} />;
         })}
+        <Contact />
       </Stack>
     </ThemeProvider>
   );

@@ -74,6 +74,7 @@ export const MyThemeProvider = ({ children }) => {
         paper: '#F3F3F3',
         primary: '#2185D5',
         secondary: '#FFBCAB',
+        dark: '#303841',
       },
       text: {
         primary: '#3A4750',
