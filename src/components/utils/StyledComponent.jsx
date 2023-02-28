@@ -7,7 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
-import { Box, Button, IconButton, Typography } from '@mui/material';
+import { Box, Button, IconButton, TextField, Typography } from '@mui/material';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
@@ -97,4 +97,42 @@ export const StyledIcon = ({ color, onClick, icon }) => {
   }
 
   return getIcon();
+};
+
+export const StyledTextField = ({
+  label,
+  value,
+  setData,
+  error,
+  required,
+  ml,
+}) => {
+  const { myFont } = useMyTheme();
+
+  const font = () => {
+    if (myFont.buttonSize === 'small') return 15;
+    return 20;
+  };
+
+  const style = {
+    style: {
+      fontSize: font(),
+    },
+  };
+
+  return (
+    <TextField
+      label={label}
+      margin="normal"
+      error={error}
+      required={required}
+      fullWidth
+      multiline={ml}
+      rows={ml && 4}
+      inputProps={style}
+      InputLabelProps={style}
+      value={value}
+      onChange={e => setData(data => ({ ...data, [label]: e.target.value }))}
+    />
+  );
 };

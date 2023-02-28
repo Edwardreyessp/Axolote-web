@@ -85,7 +85,7 @@ const TermsAndConditions = ({ terms }) => {
       <StyledText
         value="© Todos los derechos reservados: Axolote Web 2021"
         variant="caption"
-        color="text.secondary"
+        color="text.terceary"
       />
       <Box display="flex" gap={1}>
         {terms.map((item, index) => {
