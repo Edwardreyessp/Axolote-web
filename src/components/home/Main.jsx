@@ -1,7 +1,7 @@
-import { Stack } from '@mui/material';
 import Carousel from '../utils/Carousel';
-import { StyledButton, StyledText } from '../utils/StyledComponent';
+import { Grid, Stack } from '@mui/material';
 import logo from '../../assets/icons/logo.svg';
+import { StyledButton, StyledText } from '../utils/StyledComponent';
 
 const Main = () => {
   const slides = [logo, logo, logo, logo];
@@ -10,10 +10,11 @@ const Main = () => {
     <Stack
       alignItems="center"
       justifyContent="center"
-      gap={4}
-      height="calc(100vh - 84px)"
+      height="100vh"
+      width="100%"
+      pt="84px"
     >
-      <Stack alignItems="center" justifyContent="center" gap={4} maxWidth="80%">
+      <Stack maxWidth="80%" alignItems="center" justifyContent="center" gap={4}>
         <StyledText value="!Tu propia página web!" variant="h1" />
         <StyledText
           value="Te ayudamos a crear tu página web a tu estilo"
@@ -21,7 +22,15 @@ const Main = () => {
         />
         <StyledButton value="Crear" />
       </Stack>
-      <Carousel slides={slides} />
+      <Grid
+        container
+        justifyContent="center"
+        sx={{ width: '100%', height: '60%', py: 4 }}
+      >
+        <Grid item xs={10} sm={10} md={10} lg={8}>
+          <Carousel slides={slides} />
+        </Grid>
+      </Grid>
     </Stack>
   );
 };

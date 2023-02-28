@@ -5,14 +5,14 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 
-export const StyledText = ({ variant, value, color }) => {
+export const StyledText = ({ variant, value, color, align }) => {
   const { myFont } = useMyTheme();
 
   return (
     <Typography
       variant={variant}
       color={color || 'text.primary'}
-      textAlign={myFont.buttonSize === 'small' && 'center'}
+      textAlign={align || (myFont.buttonSize !== 'large' && 'center')}
     >
       {value}
     </Typography>

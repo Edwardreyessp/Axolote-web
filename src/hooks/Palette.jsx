@@ -1,5 +1,5 @@
+import { useContext } from 'react';
 import { createContext } from 'react';
-import { useContext, useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { createTheme, useTheme } from '@mui/material/styles';
 
@@ -58,20 +58,22 @@ export const MyThemeProvider = ({ children }) => {
   const myTheme = createTheme({
     palette: {
       primary: {
-        light: '#4dabf5',
+        light: 'rgba(33, 133, 213, 0.2)',
         main: '#2185D5',
         dark: '#0d6bb3',
         contrastText: '#F3F3F3',
       },
       secondary: {
-        light: '#fffd82',
-        main: '#FFBCAB',
-        dark: '#FFA5B5',
+        light: 'rgba(255, 188, 171, 0.2)',
+        main: '#FFA5B5',
+        dark: '#c97b8b',
         contrastText: '#F3F3F3',
       },
       background: {
         default: 'F3F3F3',
         paper: '#F3F3F3',
+        primary: '#2185D5',
+        secondary: '#FFBCAB',
       },
       text: {
         primary: '#3A4750',

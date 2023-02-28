@@ -25,6 +25,8 @@ const Navbar = () => {
         justifyContent="space-between"
         p={myFont.buttonSize === 'small' ? '0 2%' : '0 1%'}
         boxShadow="0px 2px 4px rgba(0, 0, 0, 0.25)"
+        sx={{ position: 'fixed', width: '100%', zIndex: 2 }}
+        bgcolor="background.paper"
       >
         <Box
           display="flex"
