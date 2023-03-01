@@ -17,6 +17,8 @@
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.10",
     "@mui/styled-engine-sc": "^5.11.9",
+    "firebase": "^9.17.1",
+    "firebase-tools": "^11.24.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-svg": "^16.1.4",
