@@ -17,7 +17,7 @@ const Main = () => {
       <Stack maxWidth="80%" alignItems="center" justifyContent="center" gap={4}>
         <StyledText value="!Tu propia página web!" variant="h1" />
         <StyledText
-          value="Te ayudamos a crear tu página web a tu estilo"
+          value="Te ayudamos a crear tu página web a tu estilo :D"
           variant="body1"
         />
         <StyledButton value="Crear" />
