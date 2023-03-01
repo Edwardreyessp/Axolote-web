@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "axolote-web"
-  }
+    "default": "axolote-web",
+    "dev": "axolote-web"
+  },
+  "targets": {},
+  "etags": {}
 }
