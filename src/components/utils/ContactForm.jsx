@@ -6,23 +6,25 @@ import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   return (
-    <Box
-      height="calc(100vh - 84px)"
-      width="100%"
-      maxHeight="100%"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Box sx={{ width: { xs: '80%', sm: '70%', md: '50%', lg: '50%' } }}>
-        <Paper elevation={3}>
-          <Stack p="10%" spacing={3} alignItems="center">
-            <StyledText value="Contáctanos" variant="h1" />
-            <InputsForm />
-          </Stack>
-        </Paper>
+    <main id="Contact">
+      <Box
+        height="calc(100vh - 84px)"
+        width="100%"
+        maxHeight="100%"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Box sx={{ width: { xs: '80%', sm: '70%', md: '50%', lg: '50%' } }}>
+          <Paper elevation={3}>
+            <Stack p="10%" spacing={3} alignItems="center">
+              <StyledText value="Contáctanos" variant="h1" />
+              <InputsForm />
+            </Stack>
+          </Paper>
+        </Box>
       </Box>
-    </Box>
+    </main>
   );
 };
 

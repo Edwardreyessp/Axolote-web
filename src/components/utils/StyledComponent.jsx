@@ -26,7 +26,14 @@ export const StyledText = ({ variant, value, color, align, weight }) => {
   );
 };
 
-export const StyledButton = ({ variant, value, color, onClick, icon }) => {
+export const StyledButton = ({
+  variant,
+  value,
+  color,
+  onClick,
+  icon,
+  href,
+}) => {
   const { myFont } = useMyTheme();
 
   const getIcon = () => {
@@ -41,6 +48,7 @@ export const StyledButton = ({ variant, value, color, onClick, icon }) => {
       startIcon={getIcon()}
       size={myFont.buttonSize}
       type="submit"
+      href={href}
     >
       {value}
     </Button>

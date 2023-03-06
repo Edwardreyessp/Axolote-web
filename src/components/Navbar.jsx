@@ -49,8 +49,8 @@ const Navbar = () => {
           <MyMenu />
         ) : (
           <Box display="flex" gap="10px">
-            <StyledButton value="Iniciar Sesión" variant="text" icon="user" />
-            <StyledButton value="Registrarse" />
+            {/* <StyledButton value="Iniciar Sesión" variant="text" icon="user" /> */}
+            <StyledButton value="Contáctanos" href="#Contact" />
           </Box>
         )}
       </Box>
@@ -119,8 +119,8 @@ const ListDrawer = ({ setOpenDrawer }) => {
         ))}
       </List>
       <Box display="grid" gap={2} p={2}>
-        <StyledButton value="Iniciar Sesión" variant="outlined" />
-        <StyledButton value="Registrarse" />
+        {/* <StyledButton value="Iniciar Sesión" variant="outlined" /> */}
+        <StyledButton value="Contáctanos" href="#Contact" />
       </Box>
     </Box>
   );
