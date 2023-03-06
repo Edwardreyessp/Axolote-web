@@ -40,6 +40,7 @@ export const StyledButton = ({ variant, value, color, onClick, icon }) => {
       onClick={onClick}
       startIcon={getIcon()}
       size={myFont.buttonSize}
+      type="submit"
     >
       {value}
     </Button>
@@ -99,14 +100,7 @@ export const StyledIcon = ({ color, onClick, icon }) => {
   return getIcon();
 };
 
-export const StyledTextField = ({
-  label,
-  value,
-  setData,
-  error,
-  required,
-  ml,
-}) => {
+export const StyledTextField = ({ label, value, setData, error, ml }) => {
   const { myFont } = useMyTheme();
 
   const font = () => {
@@ -125,7 +119,7 @@ export const StyledTextField = ({
       label={label}
       margin="normal"
       error={error}
-      required={required}
+      required={error !== undefined && true}
       fullWidth
       multiline={ml}
       rows={ml && 4}
@@ -133,6 +127,7 @@ export const StyledTextField = ({
       InputLabelProps={style}
       value={value}
       onChange={e => setData(data => ({ ...data, [label]: e.target.value }))}
+      name={label}
     />
   );
 };

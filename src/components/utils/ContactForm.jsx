@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
 import { Box, Paper, Stack } from '@mui/material';
 import { StyledButton, StyledText, StyledTextField } from './StyledComponent';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   return (
@@ -33,8 +34,26 @@ const InputsForm = () => {
   });
   const [errorName, setErrorName] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
+  const form = useRef();
 
-  const handleSubmit = () => {
+  const SyteldTextFields = [
+    {
+      label: 'Nombre',
+      value: data.Nombre,
+      setData,
+      error: errorName,
+    },
+    {
+      label: 'Correo',
+      value: data.Correo,
+      setData,
+      error: errorEmail,
+    },
+    { label: 'Mensaje', value: data.Mensaje, setData, ml: true },
+  ];
+
+  const handleSubmit = e => {
+    e.preventDefault();
     if (!data.Nombre) setErrorName(true);
     else setErrorName(false);
     if (!isEmail(data.Correo)) setErrorEmail(true);
@@ -42,32 +61,48 @@ const InputsForm = () => {
 
     if (data.Nombre && isEmail(data.Correo)) {
       console.log('Enviando...');
+      sendEmail(e);
     }
+  };
+
+  const sendEmail = e => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_c44rxkq',
+        'template_a2ttycn',
+        form.current,
+        'noEYbbzDn84ul5Nhx'
+      )
+      .then(
+        result => {
+          console.log(result.text);
+        },
+        error => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
     <Stack width="100%">
-      <StyledTextField
-        label="Nombre"
-        value={data.Nombre}
-        setData={setData}
-        error={errorName}
-        required={true}
-      />
-      <StyledTextField
-        label="Correo"
-        value={data.Correo}
-        setData={setData}
-        error={errorEmail}
-        required={true}
-      />
-      <StyledTextField
-        label="Mensaje"
-        value={data.Mensaje}
-        setData={setData}
-        ml={true}
-      />
-      <StyledButton value="Enviar" onClick={handleSubmit} />
+      <form ref={form} onSubmit={handleSubmit}>
+        {SyteldTextFields.map((item, index) => {
+          return (
+            <StyledTextField
+              key={index}
+              label={item.label}
+              value={item.value}
+              setData={item.setData}
+              error={item.error}
+              required={item.required}
+              ml={item.ml}
+            />
+          );
+        })}
+        <StyledButton value="Enviar" />
+      </form>
     </Stack>
   );
 };
