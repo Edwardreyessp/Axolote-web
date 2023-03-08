@@ -2,9 +2,12 @@ import 'swiper/css';
 import './styles.css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Box } from '@mui/material';
+import { Stack } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper';
+import { StyledText } from './StyledComponent';
+import logo from '../../assets/icons/logo.svg';
+import { useMyTheme } from '../../hooks/Palette';
 
 const Carousel = ({ slides }) => {
   return (
@@ -35,12 +38,26 @@ const Carousel = ({ slides }) => {
 };
 
 const Slide = ({ slide }) => {
+  const { myFont } = useMyTheme();
+
   return (
-    <Box
+    <Stack
       width="100%"
       height="100%"
-      sx={{ background: `url(${slide}) center/contain no-repeat` }}
-    />
+      alignItems="center"
+      justifyContent="center"
+      sx={{ background: `url(${logo}) center/contain no-repeat` }}
+    >
+      <Stack
+        bgcolor="primary.contrastText"
+        borderRadius="5px"
+        sx={{ opacity: '70%' }}
+        width="100%"
+        p={myFont.buttonSize === 'small' ? 6 : 4}
+      >
+        <StyledText align="center" value={slide} variant="h1" />
+      </Stack>
+    </Stack>
   );
 };
 

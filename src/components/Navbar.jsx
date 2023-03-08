@@ -81,8 +81,8 @@ const MyMenu = () => {
 
 const ListDrawer = ({ setOpenDrawer }) => {
   const menuItems = [
-    { text: 'Inicio', icon: 'home' },
-    { text: 'Contáctanos', icon: 'email' },
+    { text: 'Inicio', icon: 'home', href: '#' },
+    { text: 'Contáctanos', icon: 'email', href: '#Contact' },
   ];
 
   return (
@@ -107,7 +107,7 @@ const ListDrawer = ({ setOpenDrawer }) => {
         {menuItems.map((item, index) => (
           <Box key={index}>
             <ListItem disablePadding>
-              <ListItemButton>
+              <ListItemButton href={item.href}>
                 <ListItemIcon>
                   <StyledIcon icon={item.icon} color="text.primary" />
                 </ListItemIcon>
