@@ -93,7 +93,11 @@ const Description = ({ banner }) => {
         display="flex"
         justifyContent={myFont.buttonSize === 'small' && 'center'}
       >
-        <StyledButton value={banner.button} color={`${banner.type}`} />
+        <StyledButton
+          value={banner.button.title}
+          color={`${banner.type}`}
+          href={banner.button.href}
+        />
       </Box>
     </Stack>
   );

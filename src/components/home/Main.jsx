@@ -20,7 +20,7 @@ const Main = () => {
           value="Te ayudamos a crear tu página web a tu estilo"
           variant="body1"
         />
-        <StyledButton value="Crear" />
+        <StyledButton value="Contáctanos" href="#Contact" />
       </Stack>
       <Grid
         container

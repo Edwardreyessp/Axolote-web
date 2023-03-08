@@ -32,7 +32,7 @@ export const StyledButton = ({
   color,
   onClick,
   icon,
-  href,
+  href = '',
 }) => {
   const { myFont } = useMyTheme();
 
@@ -49,6 +49,8 @@ export const StyledButton = ({
       size={myFont.buttonSize}
       type="submit"
       href={href}
+      rel={!href.includes('#') ? 'noreferrer' : ''}
+      target={!href.includes('#') ? '_blank' : ''}
     >
       {value}
     </Button>
@@ -79,7 +81,7 @@ export const StyledIcon = ({ color, onClick, icon }) => {
     if (icon === 'Facebook') return <FacebookOutlinedIcon sx={style} />;
     if (icon === 'Instagram') return <InstagramIcon sx={style} />;
     if (icon === 'Twitter') return <TwitterIcon sx={style} />;
-    if (icon === 'Youtube') return <YouTubeIcon sx={style} />;
+    if (icon === 'YouTube') return <YouTubeIcon sx={style} />;
     if (icon === 'TikTok')
       return (
         <Box

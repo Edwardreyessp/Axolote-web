@@ -1,20 +1,26 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { StyledIcon, StyledText } from '../utils/StyledComponent';
 
 const Footer = () => {
-  const social = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'TikTok'];
+  const social = [
+    // { title: 'Facebook', href: '' },
+    { title: 'Instagram', href: 'https://www.instagram.com/axoloteweb/' },
+    // { title: 'Twitter', href: '' },
+    // { title: 'YouTube', href: '' },
+    // { title: 'TikTok', href: '' },
+  ];
   const help = [
-    'Contáctanos',
-    'Preguntas frecuentes',
-    'Contacto',
-    'Plantillas',
+    { title: 'Contáctanos', href: '#Contact' },
+    // { title: 'Preguntas frecuentes', href: '' },
+    // { title: 'Contacto', href: '' },
+    { title: 'Plantillas', href: 'https://www.instagram.com/axoloteweb/' },
   ];
   const terms = [
     'Términos y condiciones',
     '|',
     'Políticas de privacidad',
-    '|',
-    'Cookies',
+    // '|',
+    // 'Cookies',
   ];
 
   return (
@@ -44,13 +50,15 @@ const Links = ({ social, help }) => {
         <Title title="Ayuda" />
         {help.map((item, index) => {
           return (
-            <Box key={index}>
-              <StyledText
-                value={item}
-                variant="caption"
-                color="text.terceary"
-              />
-            </Box>
+            <a key={index} href={item.href} rel="noreferrer" target="_blank">
+              <Box>
+                <StyledText
+                  value={item.title}
+                  variant="caption"
+                  color="text.terceary"
+                />
+              </Box>
+            </a>
           );
         })}
       </Box>
@@ -83,7 +91,7 @@ const TermsAndConditions = ({ terms }) => {
       py={2}
     >
       <StyledText
-        value="© Todos los derechos reservados: Axolote Web 2021"
+        value="© Todos los derechos reservados: Axolote Web 2023"
         variant="caption"
         color="text.terceary"
       />
@@ -102,10 +110,16 @@ const TermText = ({ text }) => {
 
 const Social = ({ social }) => {
   return (
-    <Box display="flex" gap={2} alignItems="center">
-      <StyledIcon icon={social} />
-      <StyledText value={social} variant="caption" color="text.terceary" />
-    </Box>
+    <a href={social.href} rel="noreferrer" target="_blank">
+      <Box display="flex" gap={2} alignItems="center">
+        <StyledIcon icon={social.title} />
+        <StyledText
+          value={social.title}
+          variant="caption"
+          color="text.terceary"
+        />
+      </Box>
+    </a>
   );
 };
 
