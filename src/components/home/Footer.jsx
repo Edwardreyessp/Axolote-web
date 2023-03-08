@@ -50,7 +50,13 @@ const Links = ({ social, help }) => {
         <Title title="Ayuda" />
         {help.map((item, index) => {
           return (
-            <a key={index} href={item.href} rel="noreferrer" target="_blank">
+            <a
+              key={index}
+              href={item.href}
+              rel="noreferrer"
+              target="_blank"
+              style={{ textDecoration: 'none' }}
+            >
               <Box>
                 <StyledText
                   value={item.title}
@@ -110,7 +116,12 @@ const TermText = ({ text }) => {
 
 const Social = ({ social }) => {
   return (
-    <a href={social.href} rel="noreferrer" target="_blank">
+    <a
+      href={social.href}
+      rel="noreferrer"
+      target="_blank"
+      style={{ textDecoration: 'none' }}
+    >
       <Box display="flex" gap={2} alignItems="center">
         <StyledIcon icon={social.title} />
         <StyledText
