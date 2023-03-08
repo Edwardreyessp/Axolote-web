@@ -26,7 +26,14 @@ export const StyledText = ({ variant, value, color, align, weight }) => {
   );
 };
 
-export const StyledButton = ({ variant, value, color, onClick, icon }) => {
+export const StyledButton = ({
+  variant,
+  value,
+  color,
+  onClick,
+  icon,
+  href = '',
+}) => {
   const { myFont } = useMyTheme();
 
   const getIcon = () => {
@@ -40,6 +47,10 @@ export const StyledButton = ({ variant, value, color, onClick, icon }) => {
       onClick={onClick}
       startIcon={getIcon()}
       size={myFont.buttonSize}
+      type="submit"
+      href={href}
+      rel={!href.includes('#') ? 'noreferrer' : ''}
+      target={!href.includes('#') ? '_blank' : ''}
     >
       {value}
     </Button>
@@ -70,7 +81,7 @@ export const StyledIcon = ({ color, onClick, icon }) => {
     if (icon === 'Facebook') return <FacebookOutlinedIcon sx={style} />;
     if (icon === 'Instagram') return <InstagramIcon sx={style} />;
     if (icon === 'Twitter') return <TwitterIcon sx={style} />;
-    if (icon === 'Youtube') return <YouTubeIcon sx={style} />;
+    if (icon === 'YouTube') return <YouTubeIcon sx={style} />;
     if (icon === 'TikTok')
       return (
         <Box
@@ -99,14 +110,7 @@ export const StyledIcon = ({ color, onClick, icon }) => {
   return getIcon();
 };
 
-export const StyledTextField = ({
-  label,
-  value,
-  setData,
-  error,
-  required,
-  ml,
-}) => {
+export const StyledTextField = ({ label, value, setData, error, ml }) => {
   const { myFont } = useMyTheme();
 
   const font = () => {
@@ -125,7 +129,7 @@ export const StyledTextField = ({
       label={label}
       margin="normal"
       error={error}
-      required={required}
+      required={error !== undefined && true}
       fullWidth
       multiline={ml}
       rows={ml && 4}
@@ -133,6 +137,7 @@ export const StyledTextField = ({
       InputLabelProps={style}
       value={value}
       onChange={e => setData(data => ({ ...data, [label]: e.target.value }))}
+      name={label}
     />
   );
 };
