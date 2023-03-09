@@ -83,7 +83,7 @@ const ListDrawer = ({ setOpenDrawer }) => {
       role="presentation"
       onClick={() => setOpenDrawer(false)}
     >
-      <Box display="flex" justifyContent="center" alignItems="center">
+      <Box display="flex" justifyContent="center" alignItems="center" pt={2}>
         <ReactSVG
           src={logo}
           beforeInjection={svg =>
