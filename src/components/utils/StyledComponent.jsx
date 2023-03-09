@@ -10,6 +10,7 @@ import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import { Box, Button, IconButton, TextField, Typography } from '@mui/material';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 
 export const StyledText = ({ variant, value, color, align, weight }) => {
   const { myFont } = useMyTheme();
@@ -82,6 +83,7 @@ export const StyledIcon = ({ color, onClick, icon }) => {
     if (icon === 'Instagram') return <InstagramIcon sx={style} />;
     if (icon === 'Twitter') return <TwitterIcon sx={style} />;
     if (icon === 'YouTube') return <YouTubeIcon sx={style} />;
+    if (icon === 'phone') return <LocalPhoneRoundedIcon sx={style} />;
     if (icon === 'TikTok')
       return (
         <Box
