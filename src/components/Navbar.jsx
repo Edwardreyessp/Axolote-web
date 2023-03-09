@@ -23,17 +23,12 @@ const Navbar = () => {
         display="flex"
         alignItems="center"
         justifyContent="space-between"
-        p={myFont.buttonSize === 'small' ? '0 2%' : '0 1%'}
+        p={{ xs: '1.5% 4%', md: '1%' }}
         boxShadow="0px 2px 4px rgba(0, 0, 0, 0.25)"
         sx={{ position: 'fixed', width: '100%', zIndex: 2 }}
-        bgcolor="background.paper"
+        bgcolor="background.dark"
       >
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          gap="10px"
-        >
+        <Box display="flex" justifyContent="center" alignItems="center" gap={2}>
           <ReactSVG
             src={logo}
             beforeInjection={svg =>
@@ -43,15 +38,16 @@ const Navbar = () => {
               )
             }
           />
-          <StyledText value="Axolote Web" variant="h2" />
+          <StyledText
+            value="Axolote Web"
+            variant="h2"
+            color="primary.contrastText"
+          />
         </Box>
         {myFont.buttonSize === 'small' ? (
           <MyMenu />
         ) : (
-          <Box display="flex" gap="10px">
-            {/* <StyledButton value="Iniciar Sesión" variant="text" icon="user" /> */}
-            <StyledButton value="Contáctanos" href="#Contact" />
-          </Box>
+          <StyledButton value="Contáctanos" href="#Contact" />
         )}
       </Box>
     </ThemeProvider>
@@ -63,11 +59,7 @@ const MyMenu = () => {
 
   return (
     <>
-      <StyledIcon
-        icon="menu"
-        color="text.primary"
-        onClick={() => setOpenDrawer(true)}
-      />
+      <StyledIcon icon="menu" onClick={() => setOpenDrawer(true)} />
       <Drawer
         anchor="right"
         open={openDrawer}
