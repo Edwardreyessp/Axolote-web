@@ -1,10 +1,16 @@
 import { useRef, useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
-import { Box, Paper, Stack } from '@mui/material';
-import { StyledButton, StyledText, StyledTextField } from './StyledComponent';
+import { Alert, Box, Fab, Paper, Snackbar, Stack } from '@mui/material';
+import {
+  StyledButton,
+  StyledIcon,
+  StyledText,
+  StyledTextField,
+} from './StyledComponent';
 import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+  const datos = [{ icon: 'email', text: 'Email: axolotewebteam@gmail.com' }];
   return (
     <main id="Contact">
       <Box
@@ -19,6 +25,16 @@ const ContactForm = () => {
           <Paper elevation={3}>
             <Stack p="10%" spacing={3} alignItems="center">
               <StyledText value="Contáctanos" variant="h1" />
+              <Stack>
+                {datos.map((item, index) => {
+                  return (
+                    <Box key={index} display="flex" alignItems="center" gap={1}>
+                      <StyledIcon icon={item.icon} color="text.primary" />
+                      <StyledText value={item.text} variant="caption" />
+                    </Box>
+                  );
+                })}
+              </Stack>
               <InputsForm />
             </Stack>
           </Paper>
@@ -36,6 +52,8 @@ const InputsForm = () => {
   });
   const [errorName, setErrorName] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+  const [showCaption, setShowCaption] = useState(false);
   const form = useRef();
 
   const SyteldTextFields = [
@@ -62,7 +80,6 @@ const InputsForm = () => {
     else setErrorEmail(false);
 
     if (data.Nombre && isEmail(data.Correo)) {
-      console.log('Enviando...');
       sendEmail(e);
     }
   };
@@ -80,15 +97,26 @@ const InputsForm = () => {
       .then(
         result => {
           console.log(result.text);
+          setShowCaption(true);
+          setIsSent(true);
         },
         error => {
           console.log(error.text);
+          setIsSent(true);
         }
       );
   };
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setIsSent(false);
+  };
+
   return (
-    <Stack width="100%">
+    <Stack width="100%" spacing={2}>
       <form ref={form} onSubmit={handleSubmit}>
         {SyteldTextFields.map((item, index) => {
           return (
@@ -105,6 +133,27 @@ const InputsForm = () => {
         })}
         <StyledButton value="Enviar" />
       </form>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={isSent}
+        autoHideDuration={5000}
+        onClose={handleClose}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={showCaption ? 'success' : 'error'}
+          variant="filled"
+        >
+          {showCaption ? 'Mensaje enviado' : 'Error al enviar el mensaje'}
+        </Alert>
+      </Snackbar>
+      {showCaption && (
+        <StyledText
+          variant="caption"
+          align="center"
+          value="Hemos recibido tu mensaje, muy atento a tu correo :D"
+        />
+      )}
     </Stack>
   );
 };
