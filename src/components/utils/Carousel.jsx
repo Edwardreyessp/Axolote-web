@@ -6,7 +6,7 @@ import { Stack } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import { StyledText } from './StyledComponent';
-import logo from '../../assets/icons/logo.svg';
+import logo from '../../assets/icons/biglogo.svg';
 import { useMyTheme } from '../../hooks/Palette';
 
 const Carousel = ({ slides }) => {
@@ -46,12 +46,10 @@ const Slide = ({ slide }) => {
       height="100%"
       alignItems="center"
       justifyContent="center"
-      sx={{ background: `url(${logo}) center/contain no-repeat` }}
+      sx={{ background: `url(${logo}) center/contain no-repeat content-box` }}
     >
       <Stack
-        bgcolor="primary.contrastText"
-        borderRadius="5px"
-        sx={{ opacity: '70%' }}
+        bgcolor="rgba(243, 243, 243, 0.8)"
         width="100%"
         p={myFont.buttonSize === 'small' ? 6 : 4}
       >
